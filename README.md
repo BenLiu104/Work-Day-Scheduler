@@ -11,7 +11,7 @@ N/A
 
 ## Usage
 
-visit application URL: https://benliu104.github.io/Code-Quiz/
+visit application URL: https://benliu104.github.io/Work-Day-Scheduler/
 
 Calendar will display current day scheduel
 <img src="./assets/step1.png" alt="alt text" width="800px" height="auto" style="display:block">
