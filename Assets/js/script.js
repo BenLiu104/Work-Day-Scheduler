@@ -29,15 +29,17 @@ function updateBgColor() {
             $(`#${i}hh`).parent().css("background-color", "#ff6961");
         }
     }
-
 }
 
 //call function retrieve event from storage and display to calendar
 getFromLocal();
 
 
+//handle the save button click event
+//when save button clicked, save textfiled content to local storage
 $("#calendar").on("click", ".saveBtn", saveToLocal)
 
+//function to save content to local storage
 function saveToLocal(event) {
     //trace from button, to find the value of corresponded text field.
     let input = $(event.target).parent().siblings().children().val();
@@ -51,11 +53,10 @@ function saveToLocal(event) {
         calendarList.push({ "time": time, "event": input });
         localStorage.setItem(`${today}`, JSON.stringify(calendarList));
         getFromLocal();
-
-
     }
 }
 
+//function to check inputed time slot is already exist in local storage or not
 function isEventExist(time, input) {
     for (let i = 0; i < calendarList.length; i++) {
         if (time == calendarList[i].time) {
@@ -66,9 +67,9 @@ function isEventExist(time, input) {
     return false;
 }
 
+// function to retrieve content from local storage
 function getFromLocal() {
     calendarList = JSON.parse(localStorage.getItem(`${today}`));
-    console.log(calendarList)
     if (calendarList == null) {
         calendarList = [];
     } else {
